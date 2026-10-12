@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Teman cutting buat atur makan, pantau kebiasaan, dan jaga progres tetap realistis."
+    />
+    <meta name="theme-color" content="#f6f7f2" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Ritme" />
+    <title>Ritme — Teman cutting kamu</title>
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" href="./icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="./icon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Navigasi utama">
+        <a class="brand" href="#beranda" aria-label="Ritme, beranda">
+          <span class="brand-mark" aria-hidden="true">r.</span>
+          <span>ritme<span class="brand-period">.</span></span>
+        </a>
+
+        <p class="nav-caption">MENU</p>
+        <nav class="main-nav">
+          <a class="nav-link active" href="#beranda" data-nav="beranda">
+            <span class="nav-icon" aria-hidden="true">⌂</span>
+            <span>Beranda</span>
+          </a>
+          <a class="nav-link" href="#jurnal" data-nav="jurnal">
+            <span class="nav-icon" aria-hidden="true">☷</span>
+            <span>Jurnal makan</span>
+          </a>
+          <a class="nav-link" href="#progres" data-nav="progres">
+            <span class="nav-icon" aria-hidden="true">↗</span>
+            <span>Progres</span>
+          </a>
+          <a class="nav-link" href="#check-in" data-nav="check-in">
+            <span class="nav-icon" aria-hidden="true">♡</span>
+            <span>Check-in</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-note">
+          <span class="note-spark" aria-hidden="true">✳</span>
+          <p>Pelan-pelan juga tetap maju.</p>
+          <span>Fokus ke kebiasaan, bukan kesempurnaan.</span>
+        </div>
+
+        <div class="profile">
+          <div class="avatar" aria-hidden="true">A</div>
+          <div class="profile-copy">
+            <strong id="profile-name">Alex</strong>
+            <span>Target pilihanmu</span>
+          </div>
+          <button class="icon-button" id="settings-button" type="button" aria-label="Atur profil dan target" title="Atur profil dan target">
+            ⚙
+          </button>
+        </div>
+      </aside>
+
+      <main class="main-content" id="beranda">
+        <header class="topbar">
+          <div class="mobile-brand"><span class="brand-mark">r.</span> ritme<span class="brand-period">.</span></div>
+          <p id="today-label" class="today-label"></p>
+          <button class="today-button" id="settings-button-mobile" type="button">
+            <span aria-hidden="true">⚙</span> Target
+          </button>
+        </header>
+
+        <div class="page-content">
+          <section class="welcome-row" aria-labelledby="welcome-title">
+            <div>
+              <p class="eyebrow">RUANG KECIL BUAT PROGRES BESAR</p>
+              <h1 id="welcome-title">Hai, <span id="welcome-name">Alex</span> <span aria-hidden="true">✳</span></h1>
+              <p class="welcome-copy">Nggak harus sempurna. Cukup lanjut satu pilihan baik hari ini.</p>
+            </div>
+            <div class="week-pill"><span class="status-dot"></span> Minggu ke-2 kamu</div>
+          </section>
+
+          <section class="summary-grid" aria-label="Ringkasan hari ini">
+            <article class="card calorie-card">
+              <div class="card-heading">
+                <div>
+                  <p class="card-label">KALORI HARI INI</p>
+                  <h2><span id="calories-consumed">0</span><span class="number-unit"> kkal</span></h2>
+                </div>
+                <span class="metric-icon calorie-icon" aria-hidden="true">◉</span>
+              </div>
+              <div class="progress-track calorie-track" role="progressbar" aria-label="Kalori terpakai" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="calorie-progress">
+                <span></span>
+              </div>
+              <div class="progress-labels"><span>Sisa <strong id="calories-remaining">1.900</strong> kkal</span><span>Target <strong id="calorie-goal">1.900</strong></span></div>
+            </article>
+
+            <article class="card protein-card">
+              <div class="card-heading">
+                <div>
+                  <p class="card-label">PROTEIN HARI INI</p>
+                  <h2><span id="protein-consumed">0</span><span class="number-unit"> g</span></h2>
+                </div>
+                <span class="metric-icon protein-icon" aria-hidden="true">✳</span>
+              </div>
+              <div class="progress-track protein-track" role="progressbar" aria-label="Protein terpenuhi" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="protein-progress">
+                <span></span>
+              </div>
+              <div class="progress-labels"><span><strong id="protein-remaining">145</strong> g lagi menuju target</span><span>Target <strong id="protein-goal">145</strong> g</span></div>
+            </article>
+
+            <article class="card weight-card">
+              <div class="card-heading">
+                <div>
+                  <p class="card-label">BERAT TERAKHIR</p>
+                  <h2><span id="current-weight">—</span><span class="number-unit"> kg</span></h2>
+                </div>
+                <span class="metric-icon weight-icon" aria-hidden="true">↘</span>
+              </div>
+              <div class="weight-trend"><span class="trend-arrow" aria-hidden="true">↘</span><span id="weight-change">Catat berat pertamamu</span></div>
+              <button class="text-button" id="log-weight-button" type="button">Catat berat <span aria-hidden="true">→</span></button>
+            </article>
+          </section>
+
+          <div class="content-grid">
+            <section class="card meals-card" id="jurnal" aria-labelledby="meals-title">
+              <div class="section-heading">
+                <div>
+                  <p class="card-label">JURNAL MAKAN</p>
+                  <h2 id="meals-title">Isi piring hari ini</h2>
+                </div>
+                <button class="outline-button" id="add-meal-button" type="button"><span aria-hidden="true">＋</span> Tambah makan</button>
+              </div>
+              <div id="meal-list" class="meal-list"></div>
+              <div class="meal-tip"><span aria-hidden="true">✦</span><p><strong>Ide kecil</strong> Protein dulu, baru lengkapi piringmu dengan yang kamu suka.</p></div>
+            </section>
+
+            <section class="card trend-card" id="progres" aria-labelledby="trend-title">
+              <div class="section-heading">
+                <div>
+                  <p class="card-label">PROGRES BERAT</p>
+                  <h2 id="trend-title">Pelan tapi jalan</h2>
+                </div>
+                <span class="trend-range">7 hari</span>
+              </div>
+              <div class="chart-summary"><strong id="chart-current">—</strong><span id="chart-summary-text">kg · tren mingguan</span></div>
+              <div class="chart-wrap">
+                <div class="chart-y-labels" aria-hidden="true"><span id="chart-y-top">—</span><span id="chart-y-middle">—</span><span id="chart-y-bottom">—</span></div>
+                <svg class="weight-chart" id="weight-chart" viewBox="0 0 420 180" role="img" aria-label="Grafik tren berat badan 7 hari"></svg>
+              </div>
+              <div class="chart-x-labels" id="chart-x-labels" aria-hidden="true"></div>
+              <p class="chart-footnote"><span aria-hidden="true">ⓘ</span> Naik-turun harian itu normal. Lihat trennya, bukan satu angka.</p>
+            </section>
+          </div>
+
+          <section class="card checkin-card" id="check-in" aria-labelledby="checkin-title">
+            <div class="checkin-copy">
+              <div class="checkin-icon" aria-hidden="true">♡</div>
+              <div>
+                <p class="card-label">CHECK-IN MINGGUAN</p>
+                <h2 id="checkin-title">Gimana rasanya minggu ini?</h2>
+                <p>Nggak cuma angka yang penting. Dengerin juga sinyal dari badanmu.</p>
+              </div>
+            </div>
+            <button class="outline-button" id="checkin-button" type="button">Mulai check-in <span aria-hidden="true">→</span></button>
+          </section>
+          <p class="safety-note">Target di sini untuk membantu kebiasaan, bukan pengganti saran tenaga kesehatan. Pilih target yang terasa aman dan realistis buatmu.</p>
+        </div>
+      </main>
+    </div>
+
+    <dialog class="app-dialog" id="meal-dialog" aria-labelledby="meal-dialog-title">
+      <form id="meal-form">
+        <div class="dialog-heading"><div><p class="card-label">JURNAL MAKAN</p><h2 id="meal-dialog-title">Tambah makanan</h2></div><button class="dialog-close" type="button" data-close aria-label="Tutup">×</button></div>
+        <label class="form-field meal-type-field">Waktu makan<select name="type"><option value="Sarapan">Sarapan</option><option value="Makan siang">Makan siang</option><option value="Makan malam">Makan malam</option><option value="Camilan">Camilan</option></select></label>
+        <section id="quick-food-panel">
+          <p class="field-hint catalog-hint">Tinggal centang yang ada di piringmu. Porsinya standar dan gizinya perkiraan.</p>
+          <div id="quick-food-list" class="quick-food-list" aria-label="Pilihan makanan cepat"></div>
+          <div id="quick-food-summary" class="quick-food-summary" aria-live="polite">Pilih makananmu</div>
+        </section>
+        <section id="manual-food-panel" hidden>
+          <p class="field-hint catalog-hint">Isi nama dan perkiraan gizi makananmu.</p>
+          <label class="form-field">Nama makanan<input name="name" maxlength="100" placeholder="Contoh: soto ayam buatan rumah" disabled /></label>
+          <div class="form-row">
+            <label class="form-field">Kalori (kkal)<input name="calories" type="number" min="0" max="10000" step="1" placeholder="350" disabled /></label>
+            <label class="form-field">Protein (gram)<input name="protein" type="number" min="0" max="1000" step="0.1" placeholder="25" disabled /></label>
+          </div>
+          <p class="field-hint food-data-note">Angka boleh perkiraan—kamu bisa cek label makanan kalau tersedia.</p>
+        </section>
+        <div class="dialog-actions meal-dialog-actions"><button class="outline-button manual-toggle" id="manual-food-toggle" type="button">＋ Manual</button><button class="outline-button" type="button" data-close>Batal</button><button class="primary-button" id="save-meal-button" type="submit" disabled>Catat pilihan</button></div>
+      </form>
+    </dialog>
+
+    <dialog class="app-dialog compact-dialog" id="weight-dialog" aria-labelledby="weight-dialog-title">
+      <form id="weight-form">
+        <div class="dialog-heading"><div><p class="card-label">PROGRES</p><h2 id="weight-dialog-title">Catat berat</h2></div><button class="dialog-close" type="button" data-close aria-label="Tutup">×</button></div>
+        <label class="form-field">Berat badan (kg)<input name="weight" type="number" min="20" max="500" step="0.1" required placeholder="68.5" /></label>
+        <p class="field-hint">Menimbang seminggu sekali sudah cukup. Pilih waktu yang nyaman dan konsisten.</p>
+        <div class="dialog-actions"><button class="outline-button" type="button" data-close>Batal</button><button class="primary-button" type="submit">Simpan berat</button></div>
+      </form>
+    </dialog>
+
+    <dialog class="app-dialog compact-dialog" id="settings-dialog" aria-labelledby="settings-dialog-title">
+      <form id="settings-form">
+        <div class="dialog-heading"><div><p class="card-label">PROFIL</p><h2 id="settings-dialog-title">Profil & target</h2></div><button class="dialog-close" type="button" data-close aria-label="Tutup">×</button></div>
+        <p class="field-hint settings-hint">Atur nama dan target yang kamu pilih sendiri. Angka ini bukan resep medis.</p>
+        <label class="form-field">Nama panggilan<input name="name" type="text" maxlength="30" required placeholder="Nama panggilan" /></label>
+        <label class="form-field">Target kalori (kkal)<input name="calories" type="number" min="500" max="10000" step="50" required /></label>
+        <label class="form-field">Target protein (gram)<input name="protein" type="number" min="1" max="1000" step="1" required /></label>
+        <div class="dialog-actions"><button class="outline-button" type="button" data-close>Batal</button><button class="primary-button" type="submit">Simpan target</button></div>
+      </form>
+    </dialog>
+
+    <dialog class="app-dialog checkin-dialog" id="checkin-dialog" aria-labelledby="checkin-dialog-title">
+      <form id="checkin-form">
+        <div class="dialog-heading"><div><p class="card-label">CHECK-IN MINGGUAN</p><h2 id="checkin-dialog-title">Cek kabarmu dulu</h2></div><button class="dialog-close" type="button" data-close aria-label="Tutup">×</button></div>
+        <fieldset class="rating-field"><legend>Gimana energi kamu minggu ini?</legend><div class="rating-options"><label><input type="radio" name="energy" value="1" required /><span>1<small>Rendah</small></span></label><label><input type="radio" name="energy" value="2" /><span>2</span></label><label><input type="radio" name="energy" value="3" /><span>3<small>Oke</small></span></label><label><input type="radio" name="energy" value="4" /><span>4</span></label><label><input type="radio" name="energy" value="5" /><span>5<small>Bagus</small></span></label></div></fieldset>
+        <fieldset class="rating-field"><legend>Gimana rasa laparmu?</legend><div class="rating-options"><label><input type="radio" name="hunger" value="1" required /><span>1<small>Nyaman</small></span></label><label><input type="radio" name="hunger" value="2" /><span>2</span></label><label><input type="radio" name="hunger" value="3" /><span>3<small>Netral</small></span></label><label><input type="radio" name="hunger" value="4" /><span>4</span></label><label><input type="radio" name="hunger" value="5" /><span>5<small>Sering lapar</small></span></label></div></fieldset>
+        <label class="form-field">Catatan kecil buat dirimu (opsional)<textarea name="note" rows="3" maxlength="300" placeholder="Hal kecil apa yang berjalan baik?"></textarea></label>
+        <div class="dialog-actions"><button class="outline-button" type="button" data-close>Batal</button><button class="primary-button" type="submit">Simpan check-in</button></div>
+      </form>
+    </dialog>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
