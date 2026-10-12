@@ -2,6 +2,10 @@
 
 Ritme adalah prototipe aplikasi diet cutting yang berdiri sendiri, terpisah dari PortoSite maupun aplikasi olahraga. Fokusnya adalah kebiasaan makan, katalog makanan Indonesia, target harian pilihan pengguna, tren berat badan, dan check-in mingguan.
 
+## Coba Ritme
+
+Buka aplikasi di [meazmiii.github.io/ritme-cutting](https://meazmiii.github.io/ritme-cutting/). Di Android, buka lewat Chrome lalu pilih **Install app** atau **Tambahkan ke layar utama** dari menu browser. Di iPhone, buka lewat Safari, tekan **Bagikan**, lalu **Add to Home Screen**.
+
 ## Menjalankan
 
 Buka `index.html` di browser modern untuk mencoba secara lokal. Untuk memasang ke home screen dan menggunakan cache offline, buka alamat GitHub Pages dengan HTTPS di browser HP lalu pilih **Install app** atau **Add to Home Screen**.
