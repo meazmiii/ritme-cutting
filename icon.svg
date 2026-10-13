@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
   <rect width="512" height="512" rx="128" fill="#527d5d"/>
-  <path d="M165 360V152h79c52 0 83 26 83 70 0 45-31 72-83 72h-18v66zm61-120h18c15 0 23-6 23-18s-8-17-23-17h-18z" fill="#fff"/>
+  <text x="245" y="376" fill="#fff" font-family="Manrope, Arial, sans-serif" font-size="340" font-weight="800" text-anchor="middle">r</text>
   <circle cx="352" cy="348" r="26" fill="#e89a67"/>
 </svg>
