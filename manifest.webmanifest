@@ -4,7 +4,7 @@
   "short_name": "Ritme",
   "description": "Jurnal makan sederhana untuk bantu jaga progres cutting.",
   "lang": "id-ID",
-  "start_url": "./",
+  "start_url": "./?app=ritme-v2",
   "scope": "./",
   "display": "standalone",
   "background_color": "#f6f7f2",
