@@ -6,7 +6,7 @@ Ritme adalah prototipe aplikasi diet cutting yang berdiri sendiri, terpisah dari
 
 Buka aplikasi di [meazmiii.github.io/ritme-cutting](https://meazmiii.github.io/ritme-cutting/). Di Android, buka lewat Chrome lalu pilih **Install app** atau **Tambahkan ke layar utama** dari menu browser. Di iPhone, buka lewat Safari, tekan **Bagikan**, lalu **Add to Home Screen**.
 
-Jika Ritme sebelumnya sudah ditambahkan tetapi ikon aplikasinya tidak muncul, hapus dulu shortcut/aplikasi lama dari layar utama, buka ulang situs setelah deploy terbaru, lalu tambahkan lagi dari browser.
+Jika Ritme sebelumnya sudah ditambahkan tetapi gagal dibuka, buka ulang situs setelah deploy terbaru lalu pilih **Install app** lagi. Instalasi PWA memakai ID baru agar Chrome dapat membuat entri aplikasi baru; data jurnal situs tidak dihapus. Shortcut lama yang rusak bisa dihapus setelah instalasi baru berhasil.
 
 ## Menjalankan
 
